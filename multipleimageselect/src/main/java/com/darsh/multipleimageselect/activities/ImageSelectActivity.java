@@ -17,6 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -90,7 +91,9 @@ public class ImageSelectActivity extends AppCompatActivity {
             finish();
         }
         album = intent.getStringExtra(Constants.INTENT_EXTRA_ALBUM);
-
+        if(TextUtils.isEmpty(album)){
+            finish();
+        }
         errorDisplay = (TextView) findViewById(R.id.text_view_error);
         errorDisplay.setVisibility(View.INVISIBLE);
 
